@@ -22,6 +22,11 @@
             android:title="Deal" />
 
         <item
+            android:id="@+id/nav_list_deals"
+            android:icon="@drawable/ic_briefcase"
+            android:title="list deals" />
+
+        <item
             android:id="@+id/nav_activities"
             android:icon="@drawable/ic_list"
             android:title="Activities" />

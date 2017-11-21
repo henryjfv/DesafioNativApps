@@ -16,15 +16,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 
 import com.desafio.henryfernandez.desafio.Fragments.ActivitiesFragment;
 import com.desafio.henryfernandez.desafio.Fragments.DealFragment;
 import com.desafio.henryfernandez.desafio.Fragments.HomeFragment;
+import com.desafio.henryfernandez.desafio.Fragments.ListDealsFragment;
 import com.desafio.henryfernandez.desafio.Fragments.OrganizationFragment;
 import com.desafio.henryfernandez.desafio.Fragments.PersonFragment;
 import com.desafio.henryfernandez.desafio.Helper.DataBaseHelper;
 
-//4:30-5:30//8:20-12:20
+//4:30-5:30//8:30-1:30//8:30
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,6 +66,7 @@ public class PrincipalActivity extends AppCompatActivity
         PersonFragment.db = db;
         OrganizationFragment.db = db;
         DealFragment.db = db;
+        ListDealsFragment.db = db;
         setFragment();
     }
 
@@ -96,7 +99,8 @@ public class PrincipalActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-
+        InputMethodManager imm = (InputMethodManager)mContext.getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
@@ -109,6 +113,8 @@ public class PrincipalActivity extends AppCompatActivity
             mFragment = new DealFragment();
         } else if (id == R.id.nav_activities) {
             mFragment = new ActivitiesFragment();
+        } else if(id == R.id.nav_list_deals){
+            mFragment = new ListDealsFragment();
         }
 
         setFragment();
