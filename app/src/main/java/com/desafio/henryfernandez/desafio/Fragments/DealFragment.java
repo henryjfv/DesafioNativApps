@@ -79,7 +79,7 @@ public class DealFragment extends Fragment {
                 if(cursor != null && cursor.getCount() > 0){
                     ArrayList<moduleDefault> dataSet = new ArrayList<>();
                     while (cursor.moveToNext()){
-                        dataSet.add(new moduleDefault(0,cursor.getString(1), cursor.getString(2) + " "+
+                        dataSet.add(new moduleDefault(0,cursor.getString(1), cursor.getString(2) + ", "+
                                 cursor.getString(3)));
                                 /*stringBuffer.append("Id: "+ cursor.getString(0)+"\n");
                                 stringBuffer.append("Name: "+ cursor.getString(1)+"\n");
@@ -87,6 +87,12 @@ public class DealFragment extends Fragment {
                                 stringBuffer.append("Email: "+ cursor.getString(3)+"\n");*/
                     }
                     showAlertSearchlable(dataSet);
+                }else{
+                    Fragment mFragment = new OrganizationFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.screen_area, mFragment);
+                    ft.commit();
                 }
             }
         });
@@ -110,6 +116,12 @@ public class DealFragment extends Fragment {
                                 stringBuffer.append("Email: "+ cursor.getString(3)+"\n");*/
                     }
                     showAlertSearchlable(dataSet);
+                }else{
+                    Fragment mFragment = new PersonFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.screen_area, mFragment);
+                    ft.commit();
                 }
 
             }

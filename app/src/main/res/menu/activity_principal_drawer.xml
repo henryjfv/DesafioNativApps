@@ -29,7 +29,12 @@
         <item
             android:id="@+id/nav_activities"
             android:icon="@drawable/ic_list"
-            android:title="Activities" />
+            android:title="Activity" />
+
+        <item
+            android:id="@+id/nav_list_acitivities"
+            android:icon="@drawable/ic_list"
+            android:title="List acctivity" />
     </group>
 <!--
     <item android:title="Communicate">

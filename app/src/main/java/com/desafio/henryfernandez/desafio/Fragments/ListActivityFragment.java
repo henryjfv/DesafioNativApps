@@ -9,25 +9,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.desafio.henryfernandez.desafio.Helper.DataBaseHelper;
-import com.desafio.henryfernandez.desafio.Models.Person;
 import com.desafio.henryfernandez.desafio.R;
 
 import java.util.ArrayList;
-
-import static android.content.Context.INPUT_METHOD_SERVICE;
 
 /**
  * Created by user on 20/11/17.
  */
 
-public class ListDealsFragment extends Fragment {
+public class ListActivityFragment extends Fragment {
 
     public static DataBaseHelper db;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -37,25 +31,25 @@ public class ListDealsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_list_deal,null);
+        return inflater.inflate(R.layout.fragment_list_activity,null);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        rcv = (RecyclerView) view.findViewById(R.id.recyclerListDeal);
+        rcv = (RecyclerView) view.findViewById(R.id.recyclerListActivity);
         rcv.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         rcv.setLayoutManager(mLayoutManager);
 
-        Cursor cursor = db.getAllDataDeal();
+        Cursor cursor = db.getAllActivities();
         //StringBuffer stringBuffer = new StringBuffer();
         if(cursor != null && cursor.getCount() > 0){
             ArrayList<moduleDefault> dataSet = new ArrayList<>();
             while (cursor.moveToNext()){
                 dataSet.add(new moduleDefault(3,cursor.getString(1), cursor.getString(2) + ", " +
                         cursor.getString(3) + ", " + cursor.getString(4) + ", " + cursor.getString(5)+
-                ", "+ cursor.getString(6)+ ", "+ cursor.getString(7)));
+                        ", "+ cursor.getString(6)+ ", "+ cursor.getString(7)));
                                 /*stringBuffer.append("Id: "+ cursor.getString(0)+"\n");
                                 stringBuffer.append("Name: "+ cursor.getString(1)+"\n");
                                 stringBuffer.append("Phone: "+ cursor.getString(2)+"\n");

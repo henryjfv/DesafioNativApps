@@ -21,12 +21,13 @@ import android.view.inputmethod.InputMethodManager;
 import com.desafio.henryfernandez.desafio.Fragments.ActivitiesFragment;
 import com.desafio.henryfernandez.desafio.Fragments.DealFragment;
 import com.desafio.henryfernandez.desafio.Fragments.HomeFragment;
+import com.desafio.henryfernandez.desafio.Fragments.ListActivityFragment;
 import com.desafio.henryfernandez.desafio.Fragments.ListDealsFragment;
 import com.desafio.henryfernandez.desafio.Fragments.OrganizationFragment;
 import com.desafio.henryfernandez.desafio.Fragments.PersonFragment;
 import com.desafio.henryfernandez.desafio.Helper.DataBaseHelper;
 
-//4:30-5:30//8:30-1:30//8:30
+//4:30-5:30//8:30-1:30//8:30-11:00//1:30
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -67,6 +68,8 @@ public class PrincipalActivity extends AppCompatActivity
         OrganizationFragment.db = db;
         DealFragment.db = db;
         ListDealsFragment.db = db;
+        ActivitiesFragment.db = db;
+        ListActivityFragment.db = db;
         setFragment();
     }
 
@@ -115,6 +118,8 @@ public class PrincipalActivity extends AppCompatActivity
             mFragment = new ActivitiesFragment();
         } else if(id == R.id.nav_list_deals){
             mFragment = new ListDealsFragment();
+        }else if(id == R.id.nav_list_acitivities){
+            mFragment = new ListActivityFragment();
         }
 
         setFragment();
