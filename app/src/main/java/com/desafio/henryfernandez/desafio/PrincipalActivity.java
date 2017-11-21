@@ -24,7 +24,7 @@ import com.desafio.henryfernandez.desafio.Fragments.OrganizationFragment;
 import com.desafio.henryfernandez.desafio.Fragments.PersonFragment;
 import com.desafio.henryfernandez.desafio.Helper.DataBaseHelper;
 
-//4:30-5:30//8:20
+//4:30-5:30//8:20-12:20
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,7 +62,8 @@ public class PrincipalActivity extends AppCompatActivity
 
         mFragment = new HomeFragment();
         PersonFragment.db = db;
-
+        OrganizationFragment.db = db;
+        DealFragment.db = db;
         setFragment();
     }
 
